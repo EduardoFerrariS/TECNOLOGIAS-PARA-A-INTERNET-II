@@ -72,7 +72,7 @@ function validar_nome($nome)
 
 function validar_cpf($cpf)
 {
-    if(preg_match("/^([1-9' ]+)$/",$cpf) and strlen($cpf)>1)
+    if(preg_match("/^([1-9' ]+)$/",$cpf) and strlen($cpf)>11)
     return 1;
     else
     return 0;
