@@ -59,23 +59,46 @@
             <input type="submit" value="enviar" class="btn">
             <output>  
             <div class="resultado">
+            
+
+            <?php
+function validar_nome($nome)
+{
+    if (preg_match("/^([a-zA-Z' ]+)$/",$nome) and strlen($nome)>5)
+    return 1;
+    else
+    return 0;
+}
+
+
+?>
+
+
 <?php
+
+
 if( $_POST['nome']!=null && $_POST['idade']!=null && ($_POST['sexo']!=null) && ($_POST['sexo']!="escolha") ){
     $nome= $_POST['nome'];
     $idade=$_POST['idade'];
     $sexo=$_POST['sexo'];
+    if(validar_nome($nome)==1)
+    {
     echo "<br> dados cadastrados com sucesso";
     echo "<br>Nome: ".$nome;
     echo "<br> idade: ".$idade;
     echo "<br> sexo: ".$sexo;
 }
+else{
+    echo"<br>verifique ortografia no seu nome";
+}
+}
 else
- echo "envio  invalido"
+ echo "Dados invalidos"
 
 ?>
 </div>
 
-            </output>
+</output>
 
 		</select>
         </fieldset>
@@ -84,6 +107,4 @@ else
 
 
 </body>
-
-
 </html>

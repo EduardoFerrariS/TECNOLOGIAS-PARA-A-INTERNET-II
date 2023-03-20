@@ -57,15 +57,44 @@
             <input type="submit" value="enviar" class="btn">
             <output>  
             <div class="resultado">
+
+            <?php
+function validar_nome($nome)
+{
+    if (preg_match("/^([a-zA-Z' ]+)$/",$nome) and strlen($nome)>5)
+    return 1;
+    else
+    echo "verifique ortografia do seu nome";
+    return 0;
+}
+
+function validar_senha($senha){
+    if (preg_match("/^([a-zA-Z' 1-9' ]+)$/",$senha) and strlen($senha)>8)
+    return 1;
+    else
+    echo "senha não pode conter caracteres especiais";
+    return 0;
+
+        
+
+}
+?>
 <?php
 if( $_POST['nome']!=null && $_POST['email']!=null && $_POST['password']!=null){
     $nome= $_POST['nome'];
     $email=$_POST['email'];
-    $senha=$_POST['password'];
-    echo "<br> dados cadastrados com sucesso";
-    echo "<br>Nome: ".$nome;
-    echo "<br> Email: ".$email;
-    echo "<br> Senha: ".$senha;
+    $senha=$_POST['password'];    
+    if(Validar_nome($nome)==1 and validar_senha($senha)==1)
+    {
+
+        echo "<br> dados cadastrados com sucesso";
+        echo "<br>Nome: ".$nome;
+        echo "<br> Email: ".$email;
+        echo "<br> Senha: ".$senha;
+    }
+
+
+
 }
 else
  echo "envio  invalido"

@@ -53,26 +53,53 @@
             <label for="date">nascimento</label>
 
 
-<input type="date" id="date" name="date" ">
+<input type="date" id="date" name="date" >
 
             <input type="submit" value="enviar" class="btn">
 
 
             <output>  
             <div class="resultado">
+
+            <?php
+function validar_nome($nome)
+{
+    if (preg_match("/^([a-zA-Z' ]+)$/",$nome) and strlen($nome)>5)
+    return 1;
+    else
+    return 0;
+}
+
+function validar_cpf($cpf)
+{
+    if(preg_match("/^([1-9' ]+)$/",$cpf) and strlen($cpf)>1)
+    return 1;
+    else
+    return 0;
+
+}
+
+?>
+
+
 <?php
 
 if( $_POST['nome']!=null && $_POST['cpf']!=null    && $_POST['date']!=null) {
     $nome= $_POST['nome'];
     $cpf=$_POST['cpf'];
     $date=$_POST['date'];
+    if(validar_nome($nome)==1 and validar_cpf($cpf)==1 ){
     echo "<br> dados cadastrados com sucesso";
     echo "<br>Nome: ".$nome;
     echo "<br> cpf: ".$cpf;
     echo "<br> data: ".$date;
+    
 }
 else
- echo "dados incorretos... verifique corretamente "
+echo "dados incorretos...";
+}
+else
+ echo "dados não preenchidos  "
 
 ?>
 </div>
