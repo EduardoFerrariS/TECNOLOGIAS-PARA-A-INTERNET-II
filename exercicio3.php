@@ -50,7 +50,7 @@
             <legend>cadastro de usuario</legend>
             <label for="nome">Digite o nome </label>
             <input type="text" id="nome" name="nome">
-            <label for="email">Digite o email</label>
+            <label for="email">Digite o email e e</label>
             <input type="email" id="email" name="email">
             <label for="senha">Digite sua senha:</label>
             <input type="password" id="password" name="password">
